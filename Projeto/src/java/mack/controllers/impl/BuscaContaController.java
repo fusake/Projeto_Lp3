@@ -29,15 +29,13 @@ public class BuscaContaController extends AbstractController{
     public void execute() {
         try {
             int nroConta = Integer.parseInt(this.getRequest().getParameter("numero_conta"));
-            
             ConexaoInterface conexao;
             conexao = new ConexaoJavaDb("app", "app", "127.0.0.1", 1527, "sistema_bancario");
             ContaDaoInterface dao;
             dao = new ContaDaoRelacional(conexao);
             Conta c = dao.buscarPeloNumero(nroConta);
-            this.setReturnPage("/buscaConta.jsp");
-            this.getRequest().setAttribute("busca_conta", );
-
+            this.setReturnPage(returnPage);
+            this.getRequest().setAttribute("conta_buscada", c);
         } catch (Exception e) {
             Logger.getLogger(ListaContasController.class.getName()).log(Level.SEVERE, null, e);
 
