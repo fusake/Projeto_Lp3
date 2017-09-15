@@ -29,5 +29,6 @@
             <%}%>
         </table>
         <%}%>
+        <a href="index.html">Voltar</a>
     </body>
 </html>
