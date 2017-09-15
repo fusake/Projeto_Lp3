@@ -84,7 +84,7 @@ public class ContaDaoRelacional implements ContaDaoInterface {
         try {
             Statement st;
             st = conexao.getConnection().createStatement();
-            String sql = "UPDATE contas SET nro_conta =" + c.getNumero() + ", saldo =" + c.getSaldo() + "WHERE nro_conta ="+c.getNumero();
+            String sql = "UPDATE contas SET nro_conta =" + c.getNumero() + ", saldo =" + c.getSaldo() + "WHERE nro_conta =" + c.getNumero();
             st.executeUpdate(sql);
 
         } catch (Exception ex) {
@@ -93,22 +93,21 @@ public class ContaDaoRelacional implements ContaDaoInterface {
     }
 
     @Override
-    public void buscarPeloNumero(long numeroConta) {
+    public Conta buscarPeloNumero(long numeroConta) {
+        Conta c = new Conta(123, BigDecimal.ZERO);
         try {
             Statement st;
             st = conexao.getConnection().createStatement();
-            String sql = "SELECT nro_conta, saldo FROM contas WHERE nro_conta =" + numeroConta + "";
+            String sql = "SELECT * FROM contas WHERE nro_conta =" + numeroConta + "";
             ResultSet resultados = st.executeQuery(sql);
 
             while (resultados.next()) {
-                long n = resultados.getLong("nro_conta");
-                BigDecimal s = resultados.getBigDecimal("saldo");
-                System.out.print("DADOS DA CONTA: ");
-                System.out.print("Numero da Conta - " + n + "");
-                System.out.println("Saldo - " + s + "");
+                c.setNumero(resultados.getLong("nro_conta"));
+                c.setSaldo(resultados.getBigDecimal("saldo"));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        return c;
     }
 }

@@ -19,5 +19,5 @@ public interface ContaDaoInterface {
     void adicionar(Conta c);
     void remover(Conta c);
     void atualizar(Conta c);
-    void buscarPeloNumero(long numeroConta);
+    Conta buscarPeloNumero(long numeroConta);
 }
