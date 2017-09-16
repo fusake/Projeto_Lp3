@@ -14,6 +14,7 @@ and open the template in the editor.
         <h1>Digite o numero da conta que deseja buscar: </h1>
         <form action="FrontControllerServlet?control=BuscaConta">
             <input type="text" id="numero_conta" name="numero_conta" />
+            <input type="hidden" id="control" name="control" value="BuscaConta"/>
             <input type="submit" value="Buscar">
         </form>
     </body>

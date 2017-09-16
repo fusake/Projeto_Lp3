@@ -34,7 +34,7 @@ public class BuscaContaController extends AbstractController{
             ContaDaoInterface dao;
             dao = new ContaDaoRelacional(conexao);
             Conta c = dao.buscarPeloNumero(nroConta);
-            this.setReturnPage(returnPage);
+            this.setReturnPage("/listaContaBuscada.jsp");
             this.getRequest().setAttribute("conta_buscada", c);
         } catch (Exception e) {
             Logger.getLogger(ListaContasController.class.getName()).log(Level.SEVERE, null, e);

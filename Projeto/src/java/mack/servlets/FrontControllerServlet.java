@@ -34,8 +34,10 @@ public class FrontControllerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();                
         try {
+            //pegar parametros na request do numero da conta
+            String numero_conta = request.getParameter("numero_conta");
             String controller = request.getParameter("control");
             Controller control = ControllerFactory.getControllerByFullClassName(controller);
             control.init(request);
