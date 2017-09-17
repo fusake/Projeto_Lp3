@@ -27,6 +27,14 @@ public class AdicionaContaController extends AbstractController {
         try{
             int numero_conta = Integer.parseInt(this.getRequest().getParameter("numero_conta"));
             BigDecimal saldo = new BigDecimal(this.getRequest().getParameter("saldo"));
+            ConexaoInterface conexao;
+            conexao = new ConexaoJavaDb("app", "app", "127.0.0.1", 1527, "sistema_bancario");
+            ContaDaoInterface dao;
+            dao = new ContaDaoRelacional(conexao);
+            Conta c = new Conta(numero_conta, saldo);
+            dao.adicionar(c);
+            this.setReturnPage("/adicionaConta.jsp");
+            this.getRequest().setAttribute("conta_adicionada", c);
         }catch(Exception e){
             
         }
