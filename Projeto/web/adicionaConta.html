@@ -11,10 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Exemplo de Uso de FrontController</h1>
-
-        <a href="FrontControllerServlet?control=ListaContas">Lista</a>
-        <a href="buscaConta.html">Buscar Conta</a>
-        <a href="adicionaConta.html">Adicionar Conta</a>
+        <h1>Adicionar Conta: </h1>
+        <form action="FrontControllerServlet">
+            <p>Numero da Conta:<input type="text" name="numero_conta" title="numero"/></p>
+            <p>Saldo:<input type="number" name="numero_conta" title="numero"/></p>
+            <input type="hidden" name="control" value="AdicionaConta"/>
+            <input type="submit" value="Enviar"/>
+        </form>
     </body>
 </html>
