@@ -11,6 +11,8 @@ package mack.servlets;
  */
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +40,7 @@ public class FrontControllerServlet extends HttpServlet {
         try {
             //pegar parametros na request do numero da conta
             String numero_conta = request.getParameter("numero_conta");
+            BigDecimal saldo = new BigDecimal(request.getParameter("saldo"));
             String controller = request.getParameter("control");
             Controller control = ControllerFactory.getControllerByFullClassName(controller);
             control.init(request);
