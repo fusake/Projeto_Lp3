@@ -15,5 +15,10 @@ import java.util.List;
 public interface TitularDaoInterface {
 
     List<Titular> listarTudo();
+    
+    void adicionar(Titular t);
+    void remover(Titular t);
+    void atualizar(Titular t);
+    Titular buscarPeloNome(String nome);
 
 }

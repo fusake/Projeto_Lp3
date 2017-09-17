@@ -23,6 +23,9 @@ public class AppSelectTitularesComDao {
         conexao = new ConexaoJavaDb("app", "app", "127.0.0.1", 1527, "sistema_bancario");
         TitularDaoInterface tao;
         tao = new TitularDaoRelacional(conexao);
+        System.out.print("----------------------");
+        Titular tt = new Titular(5, "Vinicius", "5555555555", "666666666666");
+        tao.adicionar(tt);
         List<Titular> todosTitulares;
         todosTitulares = tao.listarTudo();
         for(Titular t : todosTitulares){
